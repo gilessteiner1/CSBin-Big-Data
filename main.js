@@ -8031,18 +8031,36 @@ const bitcoinData = [
   }
 ];
 
-
 //CHALLENGE ONE - log the bitcoinData object to investigate the structure of our data.
-function logType(){
-  console.log(typeof(bitcoinData));
+function getType(){
+  return typeof(bitcoinData);
 }
-//logType(); //->object
+//console.log(getType()); //->object
 
 //CHALLENGE TWO - View bitcoin information on May 1st, 2013
 //Pseudocode:
 //use JS native .filter
-function logMay1(){
-  let may1 = bitcoinData.filter((element)=>element["date"]==="2013-05-01")[;
-  console.log(may1);
+function getMay1(){
+  let may1 = bitcoinData.filter((element)=>element["date"]==="2013-05-01");
+  return console.log(may1);
 }
-//logMay1(); //->logs object corrosponding with May 1st, 2013
+//console.log(getMay1()); //->logs object corrosponding with May 1st, 2013
+
+//CHALLENGE THREE - Create an array containing only the date and price of each day. Use the built-in map method to create an array containing that information.
+//Pseudocode:
+//use JS native .map to return an array of objects {dateVal, priceVal}
+function createDatePriceArray(){
+  let filteredArr = [];
+  filteredArr =  bitcoinData.map( function(element){
+    return {"date":element["date"],"price(USD)":element["price(USD)"]}; //note-anon function does not work 			when you are using map to make every element in an array an object (bc curly brackets)
+  }
+  );
+	return filteredArr;
+}
+//console.log(createDatePriceArray())
+
+
+
+
+
+  
