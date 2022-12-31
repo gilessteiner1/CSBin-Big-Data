@@ -8032,10 +8032,17 @@ const bitcoinData = [
 ];
 
 
-//CHALLENGE ONE
-//log the bitcoinData object to investigate the structure of our data.
+//CHALLENGE ONE - log the bitcoinData object to investigate the structure of our data.
 function logType(){
-console.log(typeof(bitcoinData));
+  console.log(typeof(bitcoinData));
 }
+//logType(); //->object
 
-logType(); //->object
+//CHALLENGE TWO - View bitcoin information on May 1st, 2013
+//Pseudocode:
+//use JS native .filter
+function logMay1(){
+  let may1 = bitcoinData.filter((element)=>element["date"]==="2013-05-01")[;
+  console.log(may1);
+}
+//logMay1(); //->logs object corrosponding with May 1st, 2013
