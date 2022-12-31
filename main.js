@@ -8031,4 +8031,11 @@ const bitcoinData = [
   }
 ];
 
-// Add your code here
+
+//CHALLENGE ONE
+//log the bitcoinData object to investigate the structure of our data.
+function logType(){
+console.log(typeof(bitcoinData));
+}
+
+logType(); //->object
