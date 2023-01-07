@@ -8172,3 +8172,26 @@ function generalAverageValue(arr,property){
   }
 }
 //console.log(generalAverageValue(bitcoinData,"price(USD)"));
+
+//BONUS CHALLENGE ELEVEN - priceRangeTally
+function priceRangeTally(arr,priceRange){ //range: [price1, price2]
+  //find min & max price
+  let priceArr = arr.map( function(element){
+    return element["price(USD)"];
+  });
+  let maxPrice = Math.max(...priceArr);
+  let minPrice = Math.min(...priceArr);
+  console.log([`Minimum Price: ${minPrice}`,`Maximum Price: ${maxPrice}`]);
+
+  //find how many days in range
+  let days = arr.reduce( function(acc,currValue){
+    if(currValue["price(USD)"] > priceRange[0] && currValue["price(USD)"] < priceRange[1]){
+      return acc+1;
+    }
+    else{
+      return acc;
+    }
+  },0);
+  console.log(`Days in $${priceRange[0]}-${priceRange[1]} price range: ${days} days`);
+}
+//priceRangeTally(bitcoinData,[800,1000]);
