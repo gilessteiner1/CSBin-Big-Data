@@ -8044,7 +8044,7 @@ function getMay1(){
   let may1 = bitcoinData.filter((element)=>element["date"]==="2013-05-01");
   return may1;
 }
-console.log(getMay1()); //->logs object corrosponding with May 1st, 2013
+//console.log(getMay1()); //->logs object corrosponding with May 1st, 2013
 
 //CHALLENGE THREE - Create an array containing only the date and price of each day. Use the built-in map method to create an array containing that information.
 //Pseudocode:
@@ -8064,7 +8064,9 @@ function createDatePriceArray(){
 //Pseudocode:
 //use JS native .filter
 function noZeroExchangeVolume(){
-  return bitcoinDate.filter((el)=>)
+  let nonZero = bitcoinData.filter( function(element){
+    return element["exchangeVolume(USD)"]!=0;
+  });
+  return nonZero;
 }
-
-console.log(noZeroExchangeVolume());
+//console.log(noZeroExchangeVolume());
