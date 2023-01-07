@@ -8070,3 +8070,14 @@ function noZeroExchangeVolume(){
   return nonZero;
 }
 //console.log(noZeroExchangeVolume());
+
+//CHALLENGE FIVE - Use reduce to find out how many btc were generated
+//Pseudocode:
+//Use reduce to add currValue of generatedCoins to accumulator
+function generatedTotal(){
+  let total = bitcoinData.reduce( function(accumulator,currentValue){
+    return accumulator+currentValue["generatedCoins"];
+  },0);
+  return total;
+}
+//console.log(generatedTotal());
