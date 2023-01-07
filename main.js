@@ -8144,10 +8144,10 @@ function dayMapper(arr,property1,property2){
 	//no -> return "'property':property does not exist"
 function averageValueOf(arr,property){
   if(!arr[0].hasOwnProperty(property)){
-    return `Property: ${property} does not exist.`;
+    return `property:${property} does not exist.`;
   }
-  else if(typeof(arr[0][property])!="number"){
-    return `Property: ${property} is not a number.`;
+  else if(isNaN(arr[0][property])){
+    return `property:${property} is not a number.`;
   }
   else{
     let total = arr.reduce( function(acc,currVal){
@@ -8156,4 +8156,19 @@ function averageValueOf(arr,property){
     return Number((total/arr.length).toFixed(2));
   }
 }
-//console.log(averageValueOf(bitcoinData,"fees"));
+//console.log(averageValueOf(bitcoinData,"date"));
+
+//BONUS CHALLENGE TEN - averageValueBonus
+function generalAverageValue(arr,property){
+  if(isNaN(arr[0][property])){
+    throw new Error(`property:${property} is not a number.`);
+  }
+  else{
+    let total = arr.reduce( function(acc,currVal){
+      return acc+currVal[property];
+    },0);
+    let avgValue = total/arr.length;
+    return [property,Number(avgValue.toFixed(2))];
+  }
+}
+//console.log(generalAverageValue(bitcoinData,"price(USD)"));
