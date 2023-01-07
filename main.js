@@ -8093,3 +8093,17 @@ function over100(){
   return filteredArr.length;
 }
 //console.log(over100());
+
+
+//CHALLENGE SEVEN - find the average bitcoin transaction fees between 2013 and 2015. Be sure to floor this value.
+//Pseudocode:
+//Use reduce to add up total transaction fees
+//Divide by array length to find average fees
+//return average fees
+function averageFees(){
+  let totalFees = bitcoinData.reduce( function(acc,currValue){
+    return acc+currValue["fees"];
+  },0);
+  return Number((totalFees/bitcoinData.length).toFixed(2));
+}
+console.log(averageFees());
