@@ -8133,3 +8133,27 @@ function dayMapper(arr,property1,property2){
   return mappedArr;
 }
 //console.log(dayMapper(bitcoinData,"price(USD)","sdfssdf"))
+
+//BONUS CHALLENGE NINE - averageValueOf
+//Pseudocode:
+//Write function averageValueOf that accepts arr and property
+//see if property exists
+	//yes ->
+		//use acc to add up total value of property
+		//divide by length to get average value
+	//no -> return "'property':property does not exist"
+function averageValueOf(arr,property){
+  if(!arr[0].hasOwnProperty(property)){
+    return `Property: ${property} does not exist.`;
+  }
+  else if(typeof(arr[0][property])!="number"){
+    return `Property: ${property} is not a number.`;
+  }
+  else{
+    let total = arr.reduce( function(acc,currVal){
+      return acc+currVal[property];
+    },0);
+    return Number((total/arr.length).toFixed(2));
+  }
+}
+//console.log(averageValueOf(bitcoinData,"fees"));
