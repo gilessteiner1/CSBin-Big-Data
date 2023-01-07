@@ -8081,3 +8081,15 @@ function generatedTotal(){
   return total;
 }
 //console.log(generatedTotal());
+
+//CHALLENGE SIX - Find the total number of days when bitcoin price was over $100!
+//Pseudocode:
+//Use filter to return array of days where price was over 100
+//return length of filtered array
+function over100(){
+  let filteredArr = bitcoinData.filter(function(element){
+  	return element["price(USD)"] > 100;
+  });
+  return filteredArr.length;
+}
+//console.log(over100());
