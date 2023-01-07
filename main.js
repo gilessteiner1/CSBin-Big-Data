@@ -8195,3 +8195,40 @@ function priceRangeTally(arr,priceRange){ //range: [price1, price2]
   console.log(`Days in $${priceRange[0]}-${priceRange[1]} price range: ${days} days`);
 }
 //priceRangeTally(bitcoinData,[800,1000]);
+
+//BONUS CHALLENGE TWELVE
+/*write a function that will accept an array (bitcoin data) as a param, and return an object with keys that are the names of all the numerical properties of the bitcoindata objects, and whose values are the max values of those properties
+*/
+function minMaxValueProperty(arr,property,minOrMax){
+  let valueArr = arr.map( function(element){
+    return element[property];
+  });
+  if(minOrMax === "min"){
+    return Math.min(...valueArr);
+  }
+	else{
+    return Math.max(...valueArr);
+  }
+}
+
+function createMinMaxObject(arr,minOrMax){
+  let maxValues = {};
+  let properties = ["txVolume(USD)","txCount","marketcap(USD)","price(USD)","exchangeVolume(USD)", "generatedCoins","fees"];
+	for(let i=0; i<properties.length; i++){
+    maxValues[properties[i]] = minMaxValueProperty(arr,properties[i],minOrMax);
+  }
+  return maxValues;
+}
+//console.log(createMinMaxObject(bitcoinData,"min"));
+
+//BONUS CHALLENGE THIRTEEN - write a function that compares the two objects from number 5 and creates a new object with the same keys, but the values are the ranges of Max - Min
+function createRangeObject(arr){
+  let rangeObj = {};
+  let minObj = createMinMaxObject(arr,"min");
+  let maxObj = createMinMaxObject(arr,"max");
+  for(let key in minObj){
+    rangeObj[key] = maxObj[key]-minObj[key];
+  }
+  return rangeObj;
+}
+//console.log(createRangeObject(bitcoinData));
