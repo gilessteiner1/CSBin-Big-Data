@@ -8106,4 +8106,30 @@ function averageFees(){
   },0);
   return Number((totalFees/bitcoinData.length).toFixed(2));
 }
-console.log(averageFees());
+//console.log(averageFees());
+
+//BONUS CHALLENGE EIGHT - dayMapper
+//Pseudocode:
+//Create function dayMapper that accepts arr,property1,property2
+//Use hasOwnProperty to see if either property exists
+	//yes ->
+		//set mappedArr equal to return value of invoking map passing in a function which adds property and value as key-value pair to temp object if property exists.
+	//no->return empty array
+function dayMapper(arr,property1,property2){
+  let mappedArr = [];
+  if(!arr[0].hasOwnProperty(property1) && !arr[0].hasOwnProperty(property2)){
+    return [];
+  }
+  mappedArr = arr.map( function(element){
+    let obj = {};
+    if(element.hasOwnProperty(property1)){
+      obj[property1] = element[property1];
+    }
+    if(element.hasOwnProperty(property2)){
+      obj[property2] = element[property2];
+    }
+    return obj;
+  });
+  return mappedArr;
+}
+//console.log(dayMapper(bitcoinData,"price(USD)","sdfssdf"))
